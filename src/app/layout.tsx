@@ -1,13 +1,15 @@
 // Imports
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 
 // Style
 import './globals.css'
+import Header from '@/components/Header'
+import Aside from '@/components/Aside'
 
 // Fonts
 
-const roboto = Roboto({subsets: ['latin'],weight: ['100', '300', '400', '500', '700', '900'],})
+const roboto = Montserrat({subsets: ['latin'],weight: ['100', '300', '400', '700', '900'],})
 
 // SEO
 export const metadata: Metadata = {
@@ -23,7 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={`${roboto.className} flex`}>
+        <Aside />
+        <Header />
+        {children}</body>
     </html>
   )
 }
