@@ -1,4 +1,5 @@
 import { prisma } from "../db/prisma"
+
 import User from "../types/IUser"
 import IUserService from "../types/IUserService"
 

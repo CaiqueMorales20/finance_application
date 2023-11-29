@@ -1,11 +1,14 @@
 import express, {Request, Response} from 'express'
+
 import UserServices from '../services/UserService'
 import User from '../types/IUser'
+
+import { verifyToken } from '../middlewares/verifyToken'
 
 const userRouter = express.Router()
 const userService = new UserServices()
 
-userRouter.get('/', async (req: Request, res: Response) => {
+userRouter.get('/', verifyToken, async (req: Request, res: Response) => {
   try {
     const users: User[] = await userService.getAllUsers()
     return res.status(200).send(users)
@@ -14,7 +17,7 @@ userRouter.get('/', async (req: Request, res: Response) => {
   }
 })
 
-userRouter.post('/', async (req: Request, res: Response) => {
+userRouter.post('/', verifyToken, async (req: Request, res: Response) => {
   const {name, email, password, password_confirm} = req.body
 
   if (password === password_confirm) {
@@ -29,7 +32,7 @@ userRouter.post('/', async (req: Request, res: Response) => {
 
 })
 
-userRouter.patch('/:id', async (req: Request, res: Response) => {
+userRouter.patch('/:id', verifyToken, async (req: Request, res: Response) => {
   const id: number = parseInt(req.params.id)
   const {name, email, password} = req.body
 
@@ -41,7 +44,7 @@ userRouter.patch('/:id', async (req: Request, res: Response) => {
   }
 })
 
-userRouter.delete('/:id', async (req: Request, res: Response) => {
+userRouter.delete('/:id', verifyToken, async (req: Request, res: Response) => {
   const id: number = parseInt(req.params.id)
 
   try{
