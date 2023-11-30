@@ -10,7 +10,7 @@ function verifyToken(req: Request, res: Response, next: NextFunction) {
     return res.status(401).json({message: 'Unauthorized: No token provided' })
   }
 
-  jwt.verify(token, process.env.JWT_SECRET_KEY as string, (err, decode) => {
+  jwt.verify(token, process.env.JWT_SECRET_KEY as string, (err) => {
     if (err) {
       return res.status(403).json({message: 'Unauthorized: Invalid token'})
     }
