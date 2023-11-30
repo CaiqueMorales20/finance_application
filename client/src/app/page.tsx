@@ -1,8 +1,10 @@
-import Dashboard from "./(dashboard)";
+// Client Side
+'use client'
+
+import Login from './login/page'
 
 // Functional Component
 export default function Home() {
-  return (
-    <Dashboard />
-  )
+  // Rendering
+  return <Login />
 }

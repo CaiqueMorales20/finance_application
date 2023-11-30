@@ -6,7 +6,7 @@ const authRoutes = express.Router()
 const authService = new AuthServices()
 const userService = new UserServices()
 
-authRoutes.post('/login', async (req: Request, res: Response) => {
+authRoutes.post('/login' ,async (req: Request, res: Response) => {
   const {email, password} = req.body
 
   try {
