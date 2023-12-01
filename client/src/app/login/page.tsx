@@ -1,7 +1,7 @@
-// Client Side
 'use client'
 
 import { useRouter } from "next/navigation";
+import {cookies} from 'next/headers'
 
 // Functional Component
 export default function Login() {
@@ -28,6 +28,10 @@ export default function Login() {
   
       const responseData = await response.json();
       localStorage.setItem('token', responseData.token);
+      document.cookie = "token =" + responseData.token
+      // const cookiesStore = cookies()
+      // cookiesStore.set('token', responseData.token)
+
       router.push('/dashboard')
   }
 

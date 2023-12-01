@@ -1,5 +1,4 @@
-// Client Side
-'use client'
+
 
 import Login from './login/page'
 

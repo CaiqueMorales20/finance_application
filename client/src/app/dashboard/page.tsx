@@ -1,12 +1,13 @@
+import { isAuth } from '@/middlewares/auth';
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
 
 // Functional Component
-export default function Dashboard() {
+export default async function Dashboard() {
   // Variables
-  const auth = false
+  const auth = isAuth()
 
-  if(!auth) {
+  if (!auth) {
     redirect('/')
   }
 
@@ -32,7 +33,7 @@ export default function Dashboard() {
           />
           <div>
             <h2 className="text-base text-neutral-400">Total Income</h2>
-            <p className="text-xl font-semibold text-white">R$ 2500</p>
+            <p className="text-xl font-semibold text-white">R$ 0</p>
           </div>
         </div>
         {/* Outcome */}
@@ -45,7 +46,7 @@ export default function Dashboard() {
           />
           <div>
             <h2 className="text-base text-neutral-400">Total Outcome</h2>
-            <p className="text-xl font-semibold text-white">R$ 2000</p>
+            <p className="text-xl font-semibold text-white">R$ 0</p>
           </div>
         </div>
       </section>
