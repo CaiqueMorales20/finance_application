@@ -33,6 +33,8 @@ body.modal-opened::after{
   transition: opacity 0.3s, z-index 0s; 
 }
 
+select,
+option,
 button,
 input{
   outline: none;
@@ -56,4 +58,22 @@ input{
   z-index: 50;
   opacity: 1;
   transition: opacity 0.3s, z-index 0s; 
+}
+
+.input-number::-webkit-inner-spin-button,
+.input-number::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+
+.input-number::-webkit-inner-spin-button {
+  background-image: url('/arrows.svg');
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  width: 12px; 
+  height: 17px;
+  cursor: pointer;
 }

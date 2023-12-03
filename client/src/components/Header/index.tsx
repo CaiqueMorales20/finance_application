@@ -21,7 +21,7 @@ export default function Header() {
           </a>
         </div>
         <nav className="mr-[5vw] h-24 flex items-center justify-between w-full">
-          <h1 className="text-2xl font-semibold tracking-wide text-primary-300">
+          <h1 className="text-xl font-semibold tracking-wide text-primary-300">
             Welcome back, Caique 👋
           </h1>
           <Button alt="Add entry" text="Add entry" onClick={() => setAddingEntry(true)} icon="/add.svg" icon_h={12} icon_w={12} />
