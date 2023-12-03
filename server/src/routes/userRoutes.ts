@@ -49,9 +49,56 @@ userRouter.delete('/:id', verifyToken, async (req: Request, res: Response) => {
 
   try{
     await userService.deleteUser(id)
-    res.status(200).send('User deleted')
+    return res.status(200).send('User deleted')
   } catch(error) {
-    res.status(400).send(error)
+    return res.status(400).send(error)
+  }
+})
+
+userRouter.post('/:id/entry', verifyToken, async (req: Request, res: Response) => {
+  const userId: number = parseInt(req.params.id)
+  const {title, type, value, category} = req.body
+
+  try{
+    const categoryIds: number[] = Array.isArray(category) ? category : [category];
+    const entry = await userService.createUserEntry(userId, title, type, value, categoryIds);
+    return res.status(200).send(entry)
+  } catch(error) {
+    return res.status(400).send(error)
+  }
+})
+
+userRouter.get('/:id/entry', verifyToken, async (req: Request, res: Response) => {
+  const userId: number = parseInt(req.params.id)
+
+  try {
+    const users = await userService.getAllUserEntry(userId)
+    return res.status(200).send(users)
+  } catch(error) {
+    return res.status(400).send(error)
+  }
+})
+
+userRouter.patch('/entry/:id', verifyToken, async (req: Request, res: Response) => {
+  const id: number = parseInt(req.params.id)
+  const {title, type, value, category} = req.body
+
+  try{
+    const updatedEntry = await userService.updateEntry(id, title, type, value, category)
+    return res.status(200).send(updatedEntry)
+  } catch(error) {
+    return res.status(400).send(error)
+  }
+})
+
+userRouter.delete('/entry/:id', verifyToken, async (req: Request, res: Response) => {
+  const entryId: number = parseInt(req.params.id)
+
+  try {
+    await userService.deleteEntry(entryId)
+    return res.status(200).send('Entry deleted')
+  } catch(error) {
+    return res.status(400).send(error)
   }
 })
 

@@ -1,5 +1,6 @@
 import express from 'express'
 const cors = require('cors')
+
 import userRouter from "./routes/userRoutes"
 import authRoutes from './routes/authRoutes'
 

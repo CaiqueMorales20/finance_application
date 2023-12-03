@@ -1,3 +1,4 @@
+import { getPrismaClient } from "@prisma/client/runtime/library"
 import { prisma } from "../db/prisma"
 
 import User from "../types/IUser"
@@ -51,6 +52,79 @@ class UserServices implements IUserService {
       })
     } catch(error) {
       throw error
+    }
+  }
+
+  async createUserEntry(userId: number, title: string, type:string, value:number, categoryIds: number[]): Promise<Entry> {
+    try{
+      const entry = await prisma.entry.create({
+        data: {
+          title,
+          value,
+          type,
+          user: {connect: {id: userId}},
+          category: { connect: categoryIds.map((categoryId) => ({ id: categoryId })) }
+        },
+      })
+      return entry
+    } catch(error){
+      throw(error)
+    }
+  }
+
+  async getAllUserEntry(userId: number): Promise<Entry[]> {
+    try{
+      const entries = await prisma.entry.findMany({
+        where: {userId}
+      })
+      return entries
+    } catch(error) {
+      throw error
+    }
+  }
+
+  async updateEntry(id: number, title: string, type:string, value:number, categories: number[]): Promise<Entry> {
+    console.log(id, title, type, value, categories)
+
+    interface UpdateEntryData {
+      title: string;
+      value: number;
+      type: string;
+      category?: { set: { id: number }[] };
+    }
+
+    const updateData: UpdateEntryData = {
+      title,
+      value,
+      type,
+    };
+    
+    if (categories.length > 0) {
+      updateData.category = {
+        set: categories.map((categoryId) => ({ id: categoryId })),
+      };
+    }
+    console.log(updateData)
+
+    try{
+      const entry = await prisma.entry.update({
+        where: {id},
+        data: updateData,
+      })
+      return entry
+    } catch(error){
+      console.error(error)
+      throw(error)
+    }
+  }
+
+  async deleteEntry(id: number): Promise<void> {
+    try{
+      await prisma.entry.delete({
+        where: {id}
+      })
+    } catch(error){
+      throw(error)
     }
   }
   
