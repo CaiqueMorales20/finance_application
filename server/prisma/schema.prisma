@@ -13,4 +13,20 @@ model User {
   name     String
   email    String @unique
   password String
+  entries  Entry[]
+}
+
+model Entry{
+  id       Int    @id @default(autoincrement())
+	user     User   @relation(fields: [userId], references: [id])
+	userId   Int
+	title    String
+  type     String
+	value    Int
+	category Category[]
+}
+
+model Category{
+  id       Int    @id @default(autoincrement())
+	entries  Entry[]
 }

@@ -14,14 +14,6 @@ export default async function Dashboard() {
   // Rendering
   return (
     <main className="container flex flex-col gap-9">
-      <header>
-        <h1 className="text-2xl font-semibold tracking-wide text-primary-300">
-          Welcome back, Nicolli 👋
-        </h1>
-        <p className="text-neutral-400">
-          Here&#8217;s what&#8217;s happening with your money today.
-        </p>
-      </header>
       <section className="flex items-center gap-7">
         {/* Income */}
         <div className="flex items-center gap-6 rounded-[10px] bg-neutral-700 px-6 py-10 pr-[123px]">

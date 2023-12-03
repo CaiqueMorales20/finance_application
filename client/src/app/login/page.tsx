@@ -10,9 +10,8 @@ export default function Login() {
   const [password, setPassword] = useState('')
   const router = useRouter()
 
-
   // Function
-  async function signIn() {
+  async function signIn(): Promise<void> {
     try {
       const response = await fetch('http://localhost:3333/login', {
         method: 'post',
@@ -28,7 +27,6 @@ export default function Login() {
       console.log('password', password)
   
       const responseData = await response.json();
-      localStorage.setItem('token', responseData.token);
       document.cookie = "token =" + responseData.token
       router.push('/dashboard')
     

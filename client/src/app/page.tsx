@@ -1,5 +1,3 @@
-
-
 import Login from './login/page'
 
 // Functional Component

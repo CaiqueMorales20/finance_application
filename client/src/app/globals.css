@@ -14,6 +14,25 @@ body{
   background-color: #262626;
 }
 
+body::after{
+  content: "";
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s, z-index 0s 0.3s;
+  position: fixed;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.4);
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+body.modal-opened::after{
+  z-index: 49;
+  opacity: 1;
+  transition: opacity 0.3s, z-index 0s; 
+}
+
 button,
 input{
   outline: none;
@@ -24,4 +43,17 @@ input{
 
 .container{
   padding: 33px 26px;
+  @apply mt-24
+}
+
+.modal{
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s, z-index 0s 0.3s;
+}
+
+.modal.modal-opened{
+  z-index: 50;
+  opacity: 1;
+  transition: opacity 0.3s, z-index 0s; 
 }

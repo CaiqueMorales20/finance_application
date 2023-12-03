@@ -7,26 +7,33 @@ import { usePathname } from 'next/navigation'
 // Imported Components
 import Image from 'next/image'
 import Link from 'next/link'
+import Button from '../Button'
 
 // Functional Component
 export default function Aside() {
   // Variables
   const path = usePathname()
 
+  // Functions
+  function logout() {
+    document.cookie = "token = "
+    window.location.reload()
+  }
+
   // Rendering
   return (
-    <aside className="h-screen w-[25rem] max-w-[50vw] bg-neutral-700 px-6 pb-8">
+    <aside className="h-screen w-[30rem] static bg-neutral-700 px-6 pb-8 z-40 flex flex-col">
       <header className="flex h-32 items-center ">
         <a href="/">
-          <Image src="/logo.svg" alt="Finance Logo" width={160} height={40} />
+          <Image src="/logo.svg" alt="Finance Logo" width={146} height={29} />
         </a>
       </header>
       <ul className="flex flex-col gap-2">
         {/* Item */}
         <Link href="/dashboard">
           <li
-            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white duration-300 ${
-              path === '/dashboard' ? 'bg-primary' : 'bg-transparent'
+            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white  duration-300 ${
+              path === '/dashboard' ? 'bg-primary hover:bg-primary/80' : 'bg-transparent'
             }`}
           >
             <Image
@@ -41,8 +48,8 @@ export default function Aside() {
         {/* Item */}
         <Link href="/analytics">
           <li
-            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white duration-300 ${
-              path === '/analytics' ? 'bg-primary' : 'bg-transparent'
+            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white  duration-300 ${
+              path === '/analytics' ? 'bg-primary hover:bg-primary/80' : 'bg-transparent'
             }`}
           >
             <Image
@@ -57,8 +64,8 @@ export default function Aside() {
         {/* Item */}
         <Link href="/wallet">
           <li
-            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white duration-300 ${
-              path === '/wallet' ? 'bg-primary' : 'bg-transparent'
+            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white  duration-300 ${
+              path === '/wallet' ? 'bg-primary hover:bg-primary/80' : 'bg-transparent'
             }`}
           >
             <Image
@@ -73,8 +80,8 @@ export default function Aside() {
         {/* Item */}
         <Link href="/account">
           <li
-            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white duration-300 ${
-              path === '/account' ? 'bg-primary' : 'bg-transparent'
+            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white  duration-300 ${
+              path === '/account' ? 'bg-primary hover:bg-primary/80' : 'bg-transparent'
             }`}
           >
             <Image
@@ -89,8 +96,8 @@ export default function Aside() {
         {/* Item */}
         <Link href="/settings">
           <li
-            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white duration-300 ${
-              path === '/settings' ? 'bg-primary' : 'bg-transparent'
+            className={`flex cursor-pointer items-center gap-5 rounded-md px-4 py-4 text-base font-light text-white  duration-300 ${
+              path === '/settings' ? 'bg-primary hover:bg-primary/80' : 'bg-transparent'
             }`}
           >
             <Image
@@ -103,6 +110,7 @@ export default function Aside() {
           </li>
         </Link>
       </ul>
+      <Button dark className='mb-0 mt-auto w-max' onClick={() => logout()} text='Logout' alt='Logout' icon='/logout.svg' icon_h={14} icon_w={14} />
     </aside>
   )
 }
