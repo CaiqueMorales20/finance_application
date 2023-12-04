@@ -49,7 +49,7 @@ export default function AddEntryModal({opened, onRequestClose}: IAddEntryModal) 
       <h1 className="text-neutral-700 font-semibold text-xl text-center mb-6">Add an income or outcome action</h1>
       <div className="flex flex-col gap-4 w-full mb-10">
         <input onChange={(e) => setTitle(e.currentTarget.value)} className="border-neutral-700/20 border-solid border-2 rounded-md py-2 px-4" type="text" name="title" id="title" placeholder="Title" />
-        <input className="border-neutral-700/20 border-solid border-2 rounded-md py-2 px-4 input-number" type="number" name="title" id="title" placeholder="Value" />
+        <input className="border-neutral-700/20 border-solid border-2 rounded-md py-2 px-4 input-number" type="number" name="value" id="value" placeholder="Value" />
         <Select setValue={(e) => setType(e)} placeholder='Select a type'  options={types} />
         <Select setValue={(e) => setCategory(e)} placeholder='Select a category' options={categories} />
       </div>

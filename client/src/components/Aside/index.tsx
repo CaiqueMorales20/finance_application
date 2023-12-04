@@ -23,12 +23,7 @@ export default function Aside() {
   // Rendering
   return (
     <aside className="h-screen w-[30rem] static bg-neutral-700 px-6 pb-8 z-40 flex flex-col">
-      <header className="flex h-32 items-center ">
-        <a href="/">
-          <Image src="/logo.svg" alt="Finance Logo" width={146} height={29} />
-        </a>
-      </header>
-      <ul className="flex flex-col gap-2">
+      <ul className="flex flex-col gap-2 mt-32">
         {/* Item */}
         <Link href="/dashboard">
           <li

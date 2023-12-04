@@ -28,7 +28,7 @@ export default function Login() {
   
       const responseData = await response.json();
       document.cookie = "token =" + responseData.token
-      router.push('/dashboard')
+      window.location.href = "/dashboard";
     
     } catch {
       alert('Invalid credentials')
