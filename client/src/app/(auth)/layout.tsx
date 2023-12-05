@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 
 // Style
-import './globals.css'
+import '../globals.css'
 
 // Fonts
 const roboto = Montserrat({

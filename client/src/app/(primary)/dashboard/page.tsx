@@ -1,5 +1,4 @@
 import { isAuth } from '@/middlewares/auth';
-import Image from 'next/image'
 import { redirect } from 'next/navigation'
 import Card from './Card';
 
@@ -11,9 +10,6 @@ export default async function Dashboard() {
   if (!auth) {
     redirect('/')
   }
-
-  // Functions
-  
 
   // Rendering
   return (

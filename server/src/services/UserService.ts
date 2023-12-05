@@ -1,4 +1,3 @@
-import { getPrismaClient } from "@prisma/client/runtime/library"
 import { prisma } from "../db/prisma"
 
 import User from "../types/IUser"
@@ -9,6 +8,18 @@ class UserServices implements IUserService {
     try {
       const users = await prisma.user.findMany()
       return users
+    } catch(error) {
+      throw error
+    }
+  }
+
+  async getUserById(id: number): Promise<User> {
+    try {
+      const user = await prisma.user.findUnique({where: {id}})
+
+      if(!user) throw new Error('User not found')
+
+      return user
     } catch(error) {
       throw error
     }
@@ -84,7 +95,6 @@ class UserServices implements IUserService {
   }
 
   async updateEntry(id: number, title: string, type:string, value:number, categories: number[]): Promise<Entry> {
-    console.log(id, title, type, value, categories)
 
     interface UpdateEntryData {
       title: string;
@@ -104,7 +114,6 @@ class UserServices implements IUserService {
         set: categories.map((categoryId) => ({ id: categoryId })),
       };
     }
-    console.log(updateData)
 
     try{
       const entry = await prisma.entry.update({

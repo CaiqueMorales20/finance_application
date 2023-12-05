@@ -17,6 +17,17 @@ userRouter.get('/', verifyToken, async (req: Request, res: Response) => {
   }
 })
 
+userRouter.get('/:id', verifyToken, async (req: Request, res: Response) => {
+  const id = parseInt(req.params.id)
+
+  try {
+    const user = await userService.getUserById(id)
+    return res.status(200).send(user)
+  } catch(error) {
+    return res.status(400).send(error)
+  }
+})
+
 userRouter.post('/', verifyToken, async (req: Request, res: Response) => {
   const {name, email, password, password_confirm} = req.body
 
