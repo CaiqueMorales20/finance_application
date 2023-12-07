@@ -11,10 +11,11 @@ export default async function Dashboard() {
     redirect('/')
   }
 
+  
   // Rendering
   return (
     <main className="container flex flex-col gap-9">
-      <section className="flex items-center gap-7">
+      <section className="flex flex-col md:flex-row items-center gap-7">
         <Card type='income' />
         <Card type='outcome' />
       </section>

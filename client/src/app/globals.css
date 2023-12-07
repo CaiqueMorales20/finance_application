@@ -45,13 +45,14 @@ input{
 
 .container{
   padding: 33px 26px;
-  @apply mt-24
+  @apply mt-20 md:mt-24
 }
 
 .modal{
   opacity: 0;
-  z-index: 0;
+  z-index: -1;
   transition: opacity 0.3s, z-index 0s 0.3s;
+  max-width: 90%;
 }
 
 .modal.modal-opened{
@@ -76,4 +77,16 @@ input{
   width: 12px; 
   height: 17px;
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+  .m-button p,
+  .m-button span{
+    display: none;
+  }
+  .m-button.text-true span,
+  .m-button.text-true p{
+    display: block;
+  }
 }

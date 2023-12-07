@@ -1,6 +1,6 @@
 import { prisma } from "../db/prisma"
 
-import User from "../types/IUser"
+import User, { UserInfo } from "../types/IUser"
 import IUserService from "../types/IUserService"
 
 class UserServices implements IUserService {
@@ -13,13 +13,29 @@ class UserServices implements IUserService {
     }
   }
 
-  async getUserById(id: number): Promise<User> {
+  async getUserById(id: number): Promise<UserInfo> {
     try {
       const user = await prisma.user.findUnique({where: {id}})
 
+      const entries = await prisma.entry.findMany({
+        where: {userId: id}
+      })
+
+      const incomeEntries = entries.filter((entry) => entry.type === 'income')
+      const totalIncome = incomeEntries.reduce((acc, entry) => acc + entry.value, 0)
+      
+      const outcomeEntries = entries.filter((entry) => entry.type === 'outcome')
+      const totalOutcome = outcomeEntries.reduce((acc, entry) => acc + entry.value, 0)
+      
       if(!user) throw new Error('User not found')
 
-      return user
+      const userInfo = {
+        ...user,
+        totalIncome,
+        totalOutcome
+      }
+
+      return userInfo
     } catch(error) {
       throw error
     }

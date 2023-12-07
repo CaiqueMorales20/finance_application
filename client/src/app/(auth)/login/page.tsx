@@ -61,7 +61,7 @@ export default function Login() {
               placeholder="Password"
             />
           </div>
-          <Button className="w-full justify-center mb-4" alt="Sign in" text="Sign in" onClick={() => signIn()} />
+          <Button className="text-true w-full justify-center mb-4" alt="Sign in" text="Sign in" onClick={() => signIn()} />
           <Link className="text-white text-sm text-center w-full flex justify-center" href="/register">Dont have an account? Register here</Link>
         </div>
       </div>

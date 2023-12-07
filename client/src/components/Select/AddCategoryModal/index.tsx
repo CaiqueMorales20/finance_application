@@ -45,7 +45,7 @@ export default function AddCategoryModal({opened, onRequestClose}: IAddCategoryM
 
   // Rendering
   return (
-    <div className={`w-screen h-screen bg-black/60 inset-0 modal fixed ${opened ? 'z-[52] modal-opened' : 'hidden'}`}>
+    <div className={`w-screen h-screen bg-black/60 inset-0 fixed  ${opened ? 'z-[52]' : 'hidden'}`}>
       <div ref={modalRef} className={`bg-white shadow-xl flex flex-col items-center fixed inset-0 m-auto h-max rounded-md w-[20rem] py-10 modal px-10 ${opened && 'modal-opened'}`}>
         <h1 className="text-neutral-700 font-semibold text-xl text-center mb-2">Add an category</h1>
         <Input id="name" onChange={(e) => setName(e.currentTarget.value)} value={name} placeholder="Name" />

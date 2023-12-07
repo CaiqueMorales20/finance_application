@@ -30,12 +30,10 @@ export default function RootLayout({
 }) {
   // Rendering
   return (
-    <html lang="en">
-      <body className={`${roboto.className} flex`}>
-        <Aside />
-        <Header />
-        {children}
-      </body>
-    </html>
+    <>
+      <Aside />
+      <Header />
+      {children}
+    </>
   )
 }

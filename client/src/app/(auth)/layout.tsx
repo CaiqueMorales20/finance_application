@@ -26,10 +26,6 @@ export default function RootLayout({
 }) {
   // Rendering
   return (
-    <html lang="en">
-      <body className={`${roboto.className} flex`}>
-        {children}
-      </body>
-    </html>
+    {children}
   )
 }

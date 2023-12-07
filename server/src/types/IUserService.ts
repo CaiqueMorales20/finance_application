@@ -1,8 +1,8 @@
-import User from "./IUser"
+import User, { UserInfo } from "./IUser"
 
 interface IUserService {
   getAllUsers(): Promise<User[]>
-  getUserById(id: number): Promise<User>
+  getUserById(id: number): Promise<UserInfo>
   createUser(name: string, email: string, password: string): Promise<User>
   updateUser(id: number ,name: string, email: string, password: string): Promise<User>
   deleteUser(id: number): Promise<void>

@@ -109,14 +109,14 @@ export default function AddEntryModal({opened, onRequestClose}: IAddEntryModal) 
 
   return (
     <div ref={modalRef} className={`bg-white flex flex-col items-center fixed inset-0 m-auto h-max rounded-md w-[30rem] py-10 modal px-10 ${opened && 'modal-opened'}`}>
-      <h1 className="text-neutral-700 font-semibold text-xl text-center mb-6">Add an income or outcome action</h1>
+      <h1 className="text-neutral-700 font-semibold text-base md:text-xl text-center mb-6">Add an income or outcome action</h1>
       <div className="flex flex-col gap-4 w-full mb-10">
-        <input value={title} onChange={(e) => setTitle(e.currentTarget.value)} className="border-neutral-700/20 border-solid border-2 rounded-md py-2 px-4" type="text" name="title" id="title" placeholder="Title" />
-        <input value={value} onChange={handleValue} className="border-neutral-700/20 border-solid border-2 rounded-md py-2 px-4 input-number" type="number" name="value" id="value" placeholder="Value" />
+        <input value={title} onChange={(e) => setTitle(e.currentTarget.value)} className="border-neutral-700/20 text-sm md:text-base border-solid border-2 rounded-md py-2 px-4" type="text" name="title" id="title" placeholder="Title" />
+        <input value={value} onChange={handleValue} className="border-neutral-700/20 text-sm md:text-base border-solid border-2 rounded-md py-2 px-4 input-number" type="number" name="value" id="value" placeholder="Value" />
         <Select type="type" setValue={(e) => setType(e.toString())} placeholder='Select a type' options={types} />
         <Select type="category" setValue={(e) => setCategory(e.toString())} placeholder='Select a category' options={categoryArr} />
       </div>
-      <Button  text="Add entry" alt="Add entry" onClick={() => {
+      <Button className="text-true" text="Add entry" alt="Add entry" onClick={() => {
         addEntry()
         onRequestClose()
         alert('Enviado')
