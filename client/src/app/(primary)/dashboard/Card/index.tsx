@@ -1,54 +1,12 @@
 'use client'
 
+import { useStore } from "@/states/zustand/store";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import clientCookies from "js-cookie";
-import { JwtPayload } from "jsonwebtoken";
-import fetchToken from "@/utils/fecthToken";
 
-interface IUserInfo {
-  id: number
-  name: string
-  email: string
-  password: string
-  totalIncome: number
-  totalOutcome: number
-}
 
 // Functional Component
 export default function Card({type}: ICard) {
-  const [userInfo, setUserInfo] = useState<IUserInfo>({id: 0, name: 'user', email: 'email', password: 'password', totalIncome: 0, totalOutcome: 0})
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const decodedToken = await fetchToken()
-        const { id: decodedId } = decodedToken as JwtPayload
-        let token = clientCookies.get("token")
-        const response = await fetch(`http://localhost:3333/users/${decodedId}`, {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        });
-  
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-  
-        const data = await response.json();
-        setUserInfo(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-  
-    fetchData();
-  
-    const interval = setInterval(fetchData, 1000);
-  
-    return () => clearInterval(interval); 
-  }, [])
-
+  const { userInfo } = useStore()
 
   // Rendering
   return (
@@ -61,7 +19,7 @@ export default function Card({type}: ICard) {
       height={45}
     />
     <div>
-      <h2 className="text-sm md:text-base text-neutral-400">Total {type === 'income' ? "income" : "outcome"}</h2>
+      <h2 className="text-sm md:text-base text-neutral-400">Total {type}</h2>
       <p className="text-base md:text-xl font-semibold text-white">R$ {type === 'income' ? userInfo.totalIncome : userInfo.totalOutcome}</p>
     </div>
   </div>

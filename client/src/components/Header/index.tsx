@@ -1,37 +1,18 @@
 // Client Side
 'use client'
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Button from "../Button";
 import AddEntryModal from "./AddEntryModal";
-import fetchToken from "@/utils/fecthToken";
-import { JwtPayload } from "jsonwebtoken";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { useStore } from "@/states/zustand/store";
  
 
 // Functional Component
 export default function Header() {
   // Variables
   const [addingEntry, setAddingEntry] = useState<boolean>(false)
-  const [name, setName] = useState<string>('')
-  const [isMobile,] = useState(useMediaQuery('(max-width: 768px)')) 
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const decodedToken = await fetchToken();
-        const { name: decodedName } = decodedToken as JwtPayload;
-        setName(decodedName);
-      } catch (error) {
-        console.error("Error fetching token:", error);
-      }
-    }
-
-    fetchData();
-    
-  }, []);
-  
+  const {userInfo} = useStore()
 
   // Rendering
   return (
@@ -45,7 +26,7 @@ export default function Header() {
         </div>
         <nav className="mr-[5vw] h-20 md:h-24 flex items-center justify-between w-full">
           <p className="text-sm md:text-xl font-semibold tracking-wide text-primary-300">
-            Welcome back, {name}👋
+            Welcome back, {userInfo.name}👋
           </p>
           <Button alt="Add entry" text="Add entry" onClick={() => setAddingEntry(true)} icon="/add.svg" icon_h={12} icon_w={12} />
         </nav>
