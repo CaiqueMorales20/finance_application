@@ -1,5 +1,7 @@
-import { isAuth } from "@/middlewares/auth";
-import { redirect } from "next/navigation";
+import { isAuth } from '@/middlewares/auth'
+import { redirect } from 'next/navigation'
+
+import List from './List'
 
 // Functional Component
 export default function Analytics() {
@@ -13,7 +15,7 @@ export default function Analytics() {
   // Rendering
   return (
     <main className="container">
-      Analitycs
+      <List />
     </main>
-  );
+  )
 }

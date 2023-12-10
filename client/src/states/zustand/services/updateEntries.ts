@@ -9,7 +9,7 @@ export async function updateEntries() {
 
   try {
     let token = clientCookies.get("token");
-    const response = await fetch(`http://localhost:3333/users/${decodedId}/entry`, {
+    const response = await fetch(`https://finance-api-yo3z.onrender.com/users/${decodedId}/entry`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

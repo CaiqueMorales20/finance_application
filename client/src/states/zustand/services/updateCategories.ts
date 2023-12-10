@@ -4,7 +4,7 @@ import { useStore } from "../store";
 export async function updateCategories() {
   try {
     let token = clientCookies.get("token");
-    const response = await fetch('http://localhost:3333/category', {
+    const response = await fetch('https://finance-api-yo3z.onrender.com/category', {
       headers: {
         Authorization: `Bearer ${token}`
       }

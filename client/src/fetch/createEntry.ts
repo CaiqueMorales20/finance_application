@@ -8,7 +8,7 @@ export async function createEntry({title, value, type, category}: Entry) {
   const decodedToken = await fetchToken();
   const { id: decodedId } = decodedToken as JwtPayload;
 
-  const response = await fetch(`http://localhost:3333/users/${decodedId}/entry`, {
+  const response = await fetch(`https://finance-api-yo3z.onrender.com/users/${decodedId}/entry`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

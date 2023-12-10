@@ -1,5 +1,4 @@
-import Login from "./(auth)/login/page";
-
+import Login from './(auth)/login/page'
 
 // Functional Component
 export default function Home() {

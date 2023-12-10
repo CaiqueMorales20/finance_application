@@ -45,7 +45,7 @@ input{
 
 .container{
   padding: 33px 26px;
-  @apply mt-20 md:mt-24
+  @apply mt-20 md:mt-24 ml-[18vw] md:ml-[20vw]
 }
 
 .modal{

@@ -1,7 +1,6 @@
 'use client'
 
-import { useMediaQuery } from "@/hooks/useMediaQuery"
-import Image from "next/image"
+import Image from 'next/image'
 
 // Types
 type IButton = {
@@ -10,21 +9,35 @@ type IButton = {
   dark?: boolean
   className?: string
   icon?: string
-  icon_w?: number
-  icon_h?: number
+  iconW?: number
+  iconH?: number
   alt: string
 }
 
 // Functional Component
-export default function Button({text, onClick, className, icon, alt, icon_h, icon_w, dark}: IButton) {
-  // Variables
-  const isMobile = useMediaQuery('(max-width: 768px)')
-
+export default function Button({
+  text,
+  onClick,
+  className,
+  icon,
+  alt,
+  iconH,
+  iconW,
+  dark,
+}: IButton) {
   // Rendering
   return (
-    <button title={alt} onClick={onClick} className={`px-2 py-2 md:px-8 md:py-3  m-button duration-300 text-white font-semibold text-sm rounded-md flex items-center gap-4 ${className} ${dark ? "bg-primary/60 hover:bg-primary/30" : "bg-primary hover:bg-primary/80"}`}>
+    <button
+      title={alt}
+      onClick={onClick}
+      className={`m-button flex items-center gap-4  rounded-md px-2 py-2 text-xs font-semibold text-white duration-300 md:px-8 md:py-3 md:text-sm ${className} ${
+        dark
+          ? 'bg-primary/60 hover:bg-primary/30'
+          : 'bg-primary hover:bg-primary/80'
+      }`}
+    >
       <p>{text}</p>
-      {icon && <Image src={icon} alt={alt} width={icon_w} height={icon_h} />}
+      {icon && <Image src={icon} alt={alt} width={iconW} height={iconH} />}
     </button>
-  );
+  )
 }

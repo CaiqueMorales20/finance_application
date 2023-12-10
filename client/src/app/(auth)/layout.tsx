@@ -1,15 +1,8 @@
 // Imports
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
 
 // Style
 import '../globals.css'
-
-// Fonts
-const roboto = Montserrat({
-  subsets: ['latin'],
-  weight: ['100', '300', '400', '700', '900'],
-})
 
 // SEO
 export const metadata: Metadata = {
@@ -25,7 +18,5 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   // Rendering
-  return (
-    {children}
-  )
+  return { children }
 }

@@ -1,11 +1,9 @@
 'use client'
 
-import Button from "@/components/Button";
-import Loading from "@/components/Loading";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { findAllInRenderedTree } from "react-dom/test-utils";
+import Button from '@/components/Button'
+import Loading from '@/components/Loading'
+import Link from 'next/link'
+import { useState } from 'react'
 
 // Functional Component
 export default function Login() {
@@ -18,27 +16,28 @@ export default function Login() {
   async function signIn(): Promise<void> {
     setLoading(true)
     try {
-      const response = await fetch('http://localhost:3333/login', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json', 
+      const response = await fetch(
+        'https://finance-api-yo3z.onrender.com/login',
+        {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
         },
-        body: JSON.stringify({
-          email,
-          password
-        })
-      })
-      .then((res) => res.json())
-      
+      ).then((res) => res.json())
+
+      document.cookie = 'token =' + response.token
       setLoading(false)
-      document.cookie = "token =" + response.token
-      window.location.href = "/dashboard";
-    } catch(error) {  
+      window.location.href = '/dashboard'
+    } catch (error) {
       alert('Invalid credential')
       return setLoading(false)
-  } 
-
-  } 
+    }
+  }
 
   // Rendering
   return (
@@ -61,8 +60,18 @@ export default function Login() {
               placeholder="Password"
             />
           </div>
-          <Button className="text-true w-full justify-center mb-4" alt="Sign in" text="Sign in" onClick={() => signIn()} />
-          <Link className="text-white text-sm text-center w-full flex justify-center" href="/register">Dont have an account? Register here</Link>
+          <Button
+            className="text-true mb-4 w-full justify-center"
+            alt="Sign in"
+            text="Sign in"
+            onClick={() => signIn()}
+          />
+          <Link
+            className="flex w-full justify-center text-center text-sm text-white"
+            href="/register"
+          >
+            Dont have an account? Register here
+          </Link>
         </div>
       </div>
     </main>

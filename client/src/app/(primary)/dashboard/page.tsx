@@ -1,6 +1,6 @@
-import { isAuth } from '@/middlewares/auth';
+import { isAuth } from '@/middlewares/auth'
 import { redirect } from 'next/navigation'
-import Card from './Card';
+import Card from './Card'
 
 // Functional Component
 export default async function Dashboard() {
@@ -10,13 +10,13 @@ export default async function Dashboard() {
   if (!auth) {
     redirect('/')
   }
-  
+
   // Rendering
   return (
     <main className="container flex flex-col gap-9">
-      <section className="flex flex-col md:flex-row items-center gap-7">
-        <Card type='income' />
-        <Card type='outcome' />
+      <section className="flex flex-col items-center gap-7 md:flex-row">
+        <Card type="income" />
+        <Card type="outcome" />
       </section>
     </main>
   )

@@ -4,3 +4,5 @@ type IInput = {
   onChange: (e: React.FormEvent<HTMLInputElement>) => void
   placeholder: string
 }
+
+export type { IInput }

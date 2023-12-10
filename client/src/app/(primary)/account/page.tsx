@@ -1,6 +1,6 @@
-import { isAuth } from "@/middlewares/auth";
-import { redirect } from "next/navigation";
-import Form from "./Form";
+import { isAuth } from '@/middlewares/auth'
+import { redirect } from 'next/navigation'
+import Form from './Form'
 
 // Functional Component
 export default function Account() {
@@ -16,5 +16,5 @@ export default function Account() {
     <div className="container">
       <Form />
     </div>
-  );
+  )
 }

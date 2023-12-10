@@ -3,7 +3,7 @@ import clientCookies from "js-cookie";
 
 export async function createCategory(name: string) {
   let token = clientCookies.get("token");
-  const response = await fetch(`http://localhost:3333/category`, {
+  const response = await fetch(`https://finance-api-yo3z.onrender.com/category`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
