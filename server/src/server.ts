@@ -15,6 +15,7 @@ app.use('/', authRoutes)
 app.use('/users', userRouter)
 app.use('/category', categoriesRouter)
 
-app.listen(PORT, () => {
-  console.log(`Server running in port: ${PORT}`)
-}) 
+app.listen({
+  host: '0.0.0.0',
+  PORT: process.env.PORT ? Number(process.env.PORT) : 3333
+})
