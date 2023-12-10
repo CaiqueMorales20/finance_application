@@ -1,3 +1,5 @@
+import { IInput } from '@/components/Input/types'
+
 // Functional Component
 export default function Input({ id, value, onChange, placeholder }: IInput) {
   // Rendering
