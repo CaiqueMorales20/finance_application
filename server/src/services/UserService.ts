@@ -102,7 +102,10 @@ class UserServices implements IUserService {
   async getAllUserEntry(userId: number): Promise<Entry[]> {
     try{
       const entries = await prisma.entry.findMany({
-        where: {userId}
+        where: {userId},
+        include: {
+          category: true
+        }
       })
       return entries
     } catch(error) {
