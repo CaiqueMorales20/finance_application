@@ -17,5 +17,5 @@ app.use('/category', categoriesRouter)
 
 app.listen({
   host: '0.0.0.0',
-  PORT: process.env.PORT ? Number(process.env.PORT) : 3333
+  port: process.env.PORT ? Number(process.env.PORT) : 3333
 })
