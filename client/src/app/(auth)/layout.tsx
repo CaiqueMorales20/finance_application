@@ -18,5 +18,5 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   // Rendering
-  return { children }
+  return <>{children}</>
 }
