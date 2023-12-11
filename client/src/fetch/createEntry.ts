@@ -3,6 +3,13 @@ import fetchToken from '@/utils/fecthToken'
 import clientCookies from 'js-cookie'
 import { JwtPayload } from 'jsonwebtoken'
 
+interface Entry {
+  title: string
+  value: number
+  type: string
+  category: { name: string; id: number }[]
+}
+
 export async function createEntry({ title, value, type, category }: Entry) {
   const token = clientCookies.get('token')
   const decodedToken = await fetchToken()
