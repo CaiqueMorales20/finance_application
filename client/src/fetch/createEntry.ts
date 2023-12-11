@@ -7,7 +7,7 @@ interface Entry {
   title: string
   value: number
   type: string
-  category: { name: string; id: number }[]
+  category: number[]
 }
 
 export async function createEntry({ title, value, type, category }: Entry) {
