@@ -2,7 +2,7 @@ interface Entry {
   title: string
   value: number
   type: string
-  category: number[]
+  category: { name: string; id: number }[]
 }
 
-export type {Entry}
+export type { Entry }

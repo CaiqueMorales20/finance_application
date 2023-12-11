@@ -91,13 +91,13 @@ export default function AddEntryModal({
           type="type"
           setValue={(e) => setType(e.toString())}
           placeholder="Select a type"
-          options={types}
+          types={types}
         />
         <Select
           type="category"
           setValue={(e) => setCategory(e.toString())}
           placeholder="Select a category"
-          options={categories}
+          categories={categories}
         />
       </div>
       <Button

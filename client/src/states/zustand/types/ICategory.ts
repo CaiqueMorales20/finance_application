@@ -1,6 +1,6 @@
 interface ICategory {
-  id: number,
+  id: number
   name: string
 }
 
-export type {ICategory}
+export type { ICategory }

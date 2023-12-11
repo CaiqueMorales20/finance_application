@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import AddCategoryModal from './AddCategoryModal'
+import { ICategory } from './types'
 
 type ISelect = {
-  options: any[]
+  types?: string[]
+  categories?: ICategory[]
   placeholder: string
   setValue: (e: number | string) => void
   type: 'type' | 'category'
@@ -11,7 +13,8 @@ type ISelect = {
 
 // Functional Component
 export default function Select({
-  options,
+  categories,
+  types,
   placeholder,
   setValue,
   type,
@@ -49,8 +52,8 @@ export default function Select({
         }`}
       >
         <div className="overflow-hidden">
-          {type === 'category'
-            ? options.map((option: any, index: number) => (
+          {type === 'category' && categories
+            ? categories.map((option: ICategory, index: number) => (
                 <li
                   key={index}
                   onClick={() => {
@@ -63,19 +66,21 @@ export default function Select({
                   {option.name}
                 </li>
               ))
-            : options.map((option: string, index: number) => (
-                <li
-                  key={index}
-                  onClick={() => {
-                    setValue(option)
-                    setSelectedOption(option)
-                    setSelectOpened(false)
-                  }}
-                  className="cursor-pointer px-4 py-2 text-sm duration-300 first-of-type:pt-4 hover:bg-neutral-400/30 md:text-base"
-                >
-                  {option}
-                </li>
-              ))}
+            : type === 'type' && types
+              ? types.map((option: string, index: number) => (
+                  <li
+                    key={index}
+                    onClick={() => {
+                      setValue(option)
+                      setSelectedOption(option)
+                      setSelectOpened(false)
+                    }}
+                    className="cursor-pointer px-4 py-2 text-sm duration-300 first-of-type:pt-4 hover:bg-neutral-400/30 md:text-base"
+                  >
+                    {option}
+                  </li>
+                ))
+              : null}
           {type === 'category' && (
             <li
               onClick={() => setAddingCategory(true)}

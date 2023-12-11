@@ -1,10 +1,10 @@
 interface IUserInfo {
-  id: number,
-  name: string,
-  email: string,
+  id: number
+  name: string
+  email: string
   password: string
-  totalIncome: number,
+  totalIncome: number
   totalOutcome: number
 }
 
-export type {IUserInfo}
+export type { IUserInfo }
