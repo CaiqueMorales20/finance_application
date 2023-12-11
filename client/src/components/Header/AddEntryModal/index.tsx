@@ -6,6 +6,7 @@ import { useOnClickOutside } from '@/hooks/useOnClickOutside'
 import { useEffect, useRef, useState } from 'react'
 import { useStore } from '@/states/zustand/store'
 import { createEntry } from '@/fetch/createEntry'
+import { useUpdateEffect } from '@/hooks/useUpdateEffect'
 
 // Types
 type IAddEntryModal = {
@@ -49,7 +50,7 @@ export default function AddEntryModal({
   const modalRef = useRef(null)
   useOnClickOutside(modalRef, onRequestClose)
 
-  useEffect(() => {
+  useUpdateEffect(() => {
     document.body.classList.toggle('modal-opened')
   }, [opened])
 
