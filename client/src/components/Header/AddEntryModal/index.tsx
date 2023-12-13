@@ -3,7 +3,7 @@
 import Button from '@/components/Button'
 import Select from '@/components/Select'
 import { useOnClickOutside } from '@/hooks/useOnClickOutside'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useStore } from '@/states/zustand/store'
 import { createEntry } from '@/fetch/createEntry'
 import { useUpdateEffect } from '@/hooks/useUpdateEffect'

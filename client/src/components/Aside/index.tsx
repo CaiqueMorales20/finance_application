@@ -27,14 +27,14 @@ export default function Aside() {
         {/* Item */}
         <Link href="/dashboard">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-2 text-base font-light text-white md:px-4  md:py-4 ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/dashboard'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
             }`}
           >
             <Image
-              className="md:w-6"
+              className="w-5 md:w-6"
               src="/menu/home.svg"
               alt="Go to resume"
               width={25}
@@ -46,14 +46,14 @@ export default function Aside() {
         {/* Item */}
         <Link href="/analytics">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-2 text-base font-light text-white md:px-4  md:py-4 ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/analytics'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
             }`}
           >
             <Image
-              className="md:w-6"
+              className="w-5 md:w-6"
               src="/menu/analytics.svg"
               alt="Go to analytics"
               width={25}
@@ -65,14 +65,14 @@ export default function Aside() {
         {/* Item */}
         <Link href="/wallet">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-2 text-base font-light text-white md:px-4  md:py-4 ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/wallet'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
             }`}
           >
             <Image
-              className="md:w-6"
+              className="w-5 md:w-6"
               src="/menu/wallet.svg"
               alt="Go to wallet"
               width={25}
@@ -84,14 +84,14 @@ export default function Aside() {
         {/* Item */}
         <Link href="/account">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-2 text-base font-light text-white md:px-4  md:py-4 ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/account'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
             }`}
           >
             <Image
-              className="md:w-6"
+              className="w-5 md:w-6"
               src="/menu/account.svg"
               alt="Go to account"
               width={25}
@@ -103,14 +103,14 @@ export default function Aside() {
         {/* Item */}
         <Link href="/settings">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-2 text-base font-light text-white md:px-4  md:py-4 ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/settings'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
             }`}
           >
             <Image
-              className="md:w-6"
+              className="w-5 md:w-6"
               src="/menu/settings.svg"
               alt="Go to settings"
               width={25}

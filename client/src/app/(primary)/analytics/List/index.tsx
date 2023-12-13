@@ -6,10 +6,12 @@ import Entry from '../Entry'
 // Functional Component
 export default function List() {
   const entries = useStore().entries
+  const reversed = [...entries].reverse()
+
   // Rendering
   return (
     <div className="flex flex-col gap-4">
-      {entries.map((entry, index) => (
+      {reversed.map((entry, index) => (
         <Entry
           title={entry.title}
           value={entry.value}

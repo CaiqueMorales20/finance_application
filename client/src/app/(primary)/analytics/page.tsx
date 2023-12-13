@@ -15,6 +15,7 @@ export default function Analytics() {
   // Rendering
   return (
     <main className="container">
+      <h1 className="mb-5 text-2xl font-bold text-white">Last Entries</h1>
       <List />
     </main>
   )

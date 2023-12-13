@@ -32,8 +32,8 @@ export async function createEntry({ title, value, type, category }: Entry) {
     },
   )
 
+  updateUserInfo()
   if (response.ok) {
-    console.log('Student updated successfully')
     updateUserInfo()
   } else {
     const errorMessage = await response.text()
