@@ -6,7 +6,7 @@ import { toReal } from '@/utils/toReal'
 export default function Entry({ title, value, type, category }: Entry) {
   // Rendering
   return (
-    <div className="flex w-full max-w-[25rem] justify-between gap-2 rounded-[10px] bg-neutral-700 px-4 py-8 md:gap-3 md:px-6 md:py-10 md:pb-14 ">
+    <div className="flex w-full max-w-[25rem] justify-between gap-2 rounded-[10px] bg-neutral-700/60 px-4 py-8 md:gap-3 md:px-6 md:py-10 md:pb-14 ">
       <div className="flex items-start gap-4">
         <Image
           className="w-[40px] md:w-[45px]"
@@ -25,7 +25,7 @@ export default function Entry({ title, value, type, category }: Entry) {
           </h2>
           {category.map((item, index) => (
             <p className="font-medium text-neutral-400" key={index}>
-              {item.name}
+              {item.name}sdasdas
             </p>
           ))}
         </div>

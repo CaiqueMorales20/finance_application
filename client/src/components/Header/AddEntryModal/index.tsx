@@ -7,6 +7,7 @@ import { useRef, useState } from 'react'
 import { useStore } from '@/states/zustand/store'
 import { createEntry } from '@/fetch/createEntry'
 import { useUpdateEffect } from '@/hooks/useUpdateEffect'
+import { updateEntries } from '@/states/zustand/services/updateEntries'
 
 // Types
 type IAddEntryModal = {
@@ -40,6 +41,7 @@ export default function AddEntryModal({
         type,
         category: categoryNumberArr,
       })
+      updateEntries()
       onRequestClose()
     } catch (err) {
       console.log(err)

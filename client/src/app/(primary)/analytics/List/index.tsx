@@ -5,7 +5,7 @@ import Entry from '../Entry'
 
 // Functional Component
 export default function List() {
-  const entries = useStore().entries
+  const { entries } = useStore()
   const reversed = [...entries].reverse()
 
   // Rendering

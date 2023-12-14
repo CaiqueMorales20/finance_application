@@ -30,7 +30,7 @@ export default function Register() {
             name,
             email,
             password,
-            passwordConfirm,
+            password_confirm: passwordConfirm,
           }),
         },
       ).then((res) => res.json())
