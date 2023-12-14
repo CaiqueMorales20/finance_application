@@ -50,12 +50,12 @@ export default function Register() {
   return (
     <main className="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-neutral-700">
       {isLoading && <Loading />}
-      <div className="flex flex-col gap-14">
+      <div className="flex max-w-[80vw] flex-col gap-14">
         <h1 className="text-center text-3xl font-bold text-white">
           Create a new account
         </h1>
         <div className="flex flex-col items-center">
-          <div className="mb-14 grid grid-cols-2 gap-4">
+          <div className="mb-14 grid w-full gap-4 md:grid-cols-2">
             <Input
               id="name"
               onChange={(e: React.FormEvent<HTMLInputElement>) =>
@@ -90,7 +90,7 @@ export default function Register() {
             />
           </div>
           <Button
-            className="mb-4 w-full justify-center"
+            className="text-true mb-4 w-full justify-center"
             alt="Sign up"
             text="Sign up"
             onClick={() => signUp()}

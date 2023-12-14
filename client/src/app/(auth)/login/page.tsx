@@ -28,9 +28,9 @@ export default function Login() {
             password,
           }),
         },
-      ).then((res) => res.json())
-
-      document.cookie = 'token =' + response.token
+      )
+      const data = await response.json()
+      document.cookie = 'token =' + data.token
       setLoading(false)
       window.location.href = '/dashboard'
     } catch (error) {
@@ -43,7 +43,7 @@ export default function Login() {
   return (
     <main className="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-neutral-700">
       {isLoading && <Loading />}
-      <div className="flex flex-col gap-10">
+      <div className="flex max-w-[80vw] flex-col gap-10">
         <h1 className="text-3xl font-bold text-white">Finance Application</h1>
         <div>
           <div className="mb-10 flex flex-col gap-4">
