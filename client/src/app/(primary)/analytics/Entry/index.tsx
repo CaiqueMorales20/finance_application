@@ -25,7 +25,7 @@ export default function Entry({ title, value, type, category }: Entry) {
           </h2>
           {category.map((item, index) => (
             <p className="font-medium text-neutral-400" key={index}>
-              {item.name}sdasdas
+              {item.name}
             </p>
           ))}
         </div>
