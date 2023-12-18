@@ -8,14 +8,13 @@ import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from '../Button'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 
 // Functional Component
 export default function Aside() {
   // Variables
   const path = usePathname()
   const [openedSidebar, setOpenedSidebar] = useState(false)
-  const contentRef = useRef<HTMLUListElement>(null)
 
   // Functions
   function logout() {
@@ -25,16 +24,12 @@ export default function Aside() {
 
   // Rendering
   return (
-    <aside
-      className={`fixed z-40 flex h-screen w-max flex-col overflow-hidden bg-neutral-700 px-4 pb-8 duration-300 md:px-6 ${
-        openedSidebar ? 'w-[20.1vw]' : 'w-max'
-      } `}
-    >
-      <ul className="mt-28 flex flex-col gap-2 md:mt-32" ref={contentRef}>
+    <aside className="fixed z-40 flex h-screen w-max flex-col overflow-hidden bg-neutral-700 px-4 pb-8 md:w-[20vw] md:px-6">
+      <ul className="mt-28 flex flex-col gap-2 md:mt-32">
         {/* Item */}
         <Link href="/dashboard">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/dashboard'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
@@ -47,13 +42,13 @@ export default function Aside() {
               width={25}
               height={25}
             />
-            {openedSidebar && <span>Dashboard</span>}
+            <span>Dashboard</span>
           </li>
         </Link>
         {/* Item */}
         <Link href="/analytics">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/analytics'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
@@ -66,13 +61,13 @@ export default function Aside() {
               width={25}
               height={25}
             />
-            {openedSidebar && <span>Analytics</span>}
+            <span>Analytics</span>
           </li>
         </Link>
         {/* Item */}
         <Link href="/wallet">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/wallet'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
@@ -85,13 +80,13 @@ export default function Aside() {
               width={25}
               height={25}
             />
-            {openedSidebar && <span>Wallet</span>}
+            <span>Wallet</span>
           </li>
         </Link>
         {/* Item */}
         <Link href="/account">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/account'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
@@ -104,13 +99,13 @@ export default function Aside() {
               width={25}
               height={25}
             />
-            {openedSidebar && <span>Account</span>}
+            <span>Account</span>
           </li>
         </Link>
         {/* Item */}
         <Link href="/settings">
           <li
-            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white ${
+            className={`m-button duration-250 flex cursor-pointer items-center gap-5 rounded-md p-3 text-base font-light text-white md:px-4  md:py-4 ${
               path === '/settings'
                 ? 'bg-primary hover:bg-primary/80'
                 : 'bg-transparent'
@@ -123,7 +118,7 @@ export default function Aside() {
               width={25}
               height={25}
             />
-            {openedSidebar && <span>Settings</span>}
+            <span>Settings</span>
           </li>
         </Link>
       </ul>
@@ -138,10 +133,10 @@ export default function Aside() {
       <Button
         dark
         className={`mb-0 mt-auto h-max  justify-center ${
-          openedSidebar ? 'px-auto w-max' : ' md:px-0'
+          openedSidebar ? 'px-auto w-max' : ' px-auto w-max'
         }`}
         onClick={() => logout()}
-        text={openedSidebar ? 'Logout' : ''}
+        text={openedSidebar ? 'Logout' : 'Logout'}
         alt="Logout"
         icon="/logout.svg"
         iconH={14}
