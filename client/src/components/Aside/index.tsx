@@ -8,13 +8,11 @@ import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import Button from '../Button'
-import { useState } from 'react'
 
 // Functional Component
 export default function Aside() {
   // Variables
   const path = usePathname()
-  const [openedSidebar, setOpenedSidebar] = useState(false)
 
   // Functions
   function logout() {
@@ -122,21 +120,11 @@ export default function Aside() {
           </li>
         </Link>
       </ul>
-      <span
-        className="hidden cursor-pointer text-white md:block"
-        onClick={() => {
-          setOpenedSidebar(!openedSidebar)
-        }}
-      >
-        open
-      </span>
       <Button
         dark
-        className={`mb-0 mt-auto h-max  justify-center ${
-          openedSidebar ? 'px-auto w-max' : ' px-auto w-max'
-        }`}
+        className="mb-0 mt-auto h-max  justify-center"
+        text="Logout"
         onClick={() => logout()}
-        text={openedSidebar ? 'Logout' : 'Logout'}
         alt="Logout"
         icon="/logout.svg"
         iconH={14}
